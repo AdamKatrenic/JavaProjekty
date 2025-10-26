@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Počasie</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Počasie</h1>
+
+    <!-- Formulár na pridanie mesta -->
+    <form action="/weather" method="post">
+        <input type="text" name="city" placeholder="Zadaj mesto" required>
+        <button type="submit">Pridaj mesto</button>
+    </form>
+
+    <!-- Kontrola chýb -->
+    <div th:if="${error != null}">
+        <p style="color:red;" th:text="${error}"></p>
+    </div>
+
+    <!-- Kontajner pre všetky mestá -->
+    <div class="cities-container">
+        <div class="city-card" th:each="cityWeather : ${citiesWeather}">
+            <h3 th:text="${cityWeather.name}"></h3>
+            <p th:text="'Teplota: ' + ${cityWeather.main.temp} + ' °C'"></p>
+            <p th:text="'Počasie: ' + ${cityWeather.weather[0].description}"></p>
+            <img th:src="'https://openweathermap.org/img/wn/' + ${cityWeather.weather[0].icon} + '@2x.png'"
+                 th:alt="${cityWeather.weather[0].description}" />
+        </div>
+    </div>
+</div>
+</body>
+</html>
