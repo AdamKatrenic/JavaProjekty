@@ -1,0 +1,30 @@
+### GET request to example server
+GET http://localhost:8080
+
+###
+GET http://localhost:8080/api/v1/zamestnanci-obchodu
+
+###
+GET http://localhost:8080/api/v1/zamestnanci-obchodu/1
+
+###
+POST http://localhost:8080/api/v1/zamestnanci-obchodu
+Content-Type: application/json
+
+{
+  "meno": "Alex",
+  "pozicia": "pokladnik"
+}
+
+###
+DELETE http://localhost:8080/api/v1/zamestnanci-obchodu/1
+
+###
+
+PUT http://localhost:8080/api/v1/zamestnanci-obchodu/1
+Content-Type: application/json
+
+{
+  "meno": "Alex U",
+  "pozicia": "skladnik"
+}
