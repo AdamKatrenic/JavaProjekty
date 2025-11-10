@@ -1,4 +1,4 @@
-package com.example.adamdev.zoznamzamestnancov;
+package com.example.adamdev.zoznamzamestnancov.model;
 
 import jakarta.persistence.*;
 
