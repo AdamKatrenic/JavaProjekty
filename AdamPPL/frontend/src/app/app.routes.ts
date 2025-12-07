@@ -8,7 +8,10 @@ import { StatsComponent } from './stats.component';
 
 export const routes: Routes = [
   { path: '', component: DashboardComponent },
+  { path: 'exercises/:type', component: ExercisesComponent },
   { path: 'workouts', component: WorkoutsListComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'workouts/new', component: WorkoutEditorComponent },
   { path: 'workouts/:id', component: WorkoutDetailComponent },
   { path: 'exercises', component: ExercisesComponent },
