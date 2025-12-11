@@ -1,5 +1,16 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app';
-import { appConfig } from './app/app.config';
+import { importProvidersFrom } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-bootstrapApplication(AppComponent, appConfig).catch(console.error);
+import { App } from './app/app';              // root komponent z app.ts
+import { appConfig } from './app/app.config';
+import { routes } from './app/app.routes';
+
+bootstrapApplication(App, {
+  providers: [
+    provideRouter(routes),
+    importProvidersFrom(BrowserAnimationsModule),
+    ...(appConfig.providers ?? []) // ak máš v app.config ďalších providerov
+  ]
+}).catch(err => console.error(err));

@@ -1,1 +1,10 @@
 <wt-dashboard></wt-dashboard>
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/">Dashboard</button>
+  <button mat-button routerLink="/exercises/push">Exercises</button>
+</mat-toolbar>
+
+<main [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</main>
+

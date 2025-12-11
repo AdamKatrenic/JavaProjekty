@@ -16,5 +16,7 @@ export const routes: Routes = [
   { path: 'workouts/:id', component: WorkoutDetailComponent },
   { path: 'exercises', component: ExercisesComponent },
   { path: 'stats', component: StatsComponent },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
+  { path: '', component: DashboardComponent, data: { animation: 'DashboardPage' } },
+  { path: 'exercises/:type', component: ExercisesComponent, data: { animation: 'WorkoutPage' } }
 ];
